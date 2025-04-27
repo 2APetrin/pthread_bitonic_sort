@@ -7,7 +7,6 @@
 
 #include <iostream>
 
-// I dunno how to move it into namespace
 #include <pthread.h>
 
 namespace bitonic_sort {
@@ -160,7 +159,7 @@ namespace detail {
 
 } // <-- namespace detail
 
-    // first version works only with lengths 2^n and 2^m processor amount
+    // Works only with lengths 2^n and 2^m processor amount otherwise undefined behaviour
     template<typename comp, typename it>
     void bitonic_sort(it first, it last, int threadc, comp) {
         using arg_t = detail::sort_arg<it>;

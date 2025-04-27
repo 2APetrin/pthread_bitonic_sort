@@ -13,7 +13,7 @@
 
 namespace bs = bitonic_sort;
 
-class bitonic_sort_sainty_test : public ::testing::TestWithParam<int> {
+class bitonic_sort_sanity_test : public ::testing::TestWithParam<int> {
 protected:
     void SetUp() override {
         namespace fs = std::filesystem;
@@ -38,15 +38,15 @@ protected:
     std::vector<int> array_copy;
 };
 
-TEST_P(bitonic_sort_sainty_test, sainty_check) {
+TEST_P(bitonic_sort_sanity_test, sanity_check) {
     bs::bitonic_sort(array.begin(), array.end(), 2, std::less<int>());
     std::sort(array_copy.begin(), array_copy.end(), std::less<int>());
     ASSERT_TRUE(array == array_copy);
 }
 
 INSTANTIATE_TEST_SUITE_P(
-    sainty_check_suite,
-    bitonic_sort_sainty_test,
+    sanity_check_suite,
+    bitonic_sort_sanity_test,
     ::testing::Range(0, 5)
 );
 
